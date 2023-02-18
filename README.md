@@ -64,7 +64,7 @@
 
 1. Before the advent of Nbed64, There are many symmetric encryption algorithms on the market, Like AES, DES, TDEA, RC4, RC5, etc.They are famous,So what is the significance of designing Nbed64?The answer is: readability+versatility+lightweight.Traditional encryption algorithms have one common feature:It mainly serves binary data security.The encrypted result cannot be stringed,But not stringing means:No input, no readability,It is not convenient for printing and debugging,wait...This is not conducive to modern visual interaction,Especially, it is inconvenient to operate binary data in script languages such as JS and PHP!In WEB applications, And in Web-based APP, Traditional encryption is not convenient for data interaction.What shall do? People usually have two choices:1. Convert to hexadecimal text, 2. Convert to Base64 text. As a result, posts from AES and DES to Base64 are everywhere on the Internet. You see, after a turn, the problem comes back----So why don't we implement encryption directly on the basis of Base64 encoding? Why take off your pants and fart( to overegg the pudding || to put butter on bacon )?! Therefore,Create a lightweight, universal, readable and out-of-the-box encryption scheme, This is the original intention of the author to design Nbed64!
 
-2. Nbed64 is a set of [multilingual]+[cross-platform] encryption and decryption libraries, Nbed64 is now open source in the following languages: GO, C #, C/C++, Java, Python, JavaScript, PHP, E, And other upcoming programming language versions.This means that, In all major programming languages, Any data encrypted and decrypted using Nbed64,  Data can be exchanged without obstacles. For developers in different languages, Nbed64 function name, Parameter name, Encryption results, They are consistent and unified. let put it another way: Using Nbed64, No matter what language the front-end and back-end developers use, The understanding of the results is unified, There are no differences, No barriers, Data interaction is unified. 
+2. Nbed64 is a set of [multilingual]+[cross-platform] encryption and decryption libraries, Nbed64 is now open source in the following languages: GO, C #, C/C++, Java, Python, JavaScript, PHP, E, And other upcoming programming language versions.This means that, In all major programming languages, Any data encrypted and decrypted using Nbed64,  Data can be exchanged without obstacles. For developers in different languages, Nbed64 function name, Parameter name, Encryption results, They are consistent and unified. $put it another way: Using Nbed64, No matter what language the front-end and back-end developers use, The understanding of the results is unified, There are no differences, No barriers, Data interaction is unified. 
 
 3. Nbed64 is the abbreviation of Network Bridge Encrypt Decrypt Base64, It is a set of universal, open source, cross-language, cross-platform excellent encryption solution library. The origin of this set of algorithms, It was first designed by the CEO of China Network Bridge Network Technology in 2014, There was only one version of C++, Subsequently, it continued to expand and iterate in its company's production environment, It has developed into many language versions today. Therefore, 'nb' refers to the name of the Network Bridge company,  'ed' refers to encryption and decryption, '64' means that the algorithm is based on the Base64 encoding framework. be careful, Please do not mistake "nbed" for "asymmetric..." encryption algorithm, This understanding is wrong! Nbed64 is a symmetric encryption scheme, And the upgraded symmetric encryption scheme, People like to call it: Dynamic encryption scheme! 
 
@@ -102,88 +102,14 @@
 [Python-Nbed64]: https://github.com/love915sss/Python-Nbed64-base64/
 
 
-# Install And Include
+## Requirements
 
-## install
+* PHP: 7.1+/8.0+
 
-```shell
-$ npm install --save js-nbed64
-```
-+ *If you cannot install through npm, it doesn't matter. Any of the following methods will have the same effect...*
+## Install
 
-## Include
-
-### In browser
-
-Local... You need to download and decompress nbed64.zip on GitHub or official website, then...
-
-```html
-<script src="nbed64.es5.all.js">/* Full version - used in the research environment */</script>
-<script src="nbed64.es5.min.js">/* Compressed version - used in production environment */</script>
-```
-
-… or Directly from CDN.In this way, you do not have to download and install.
-
-```html
-<script src="https://nbed64.oss-cn-hongkong.aliyuncs.com/nbed64.es5.all.js">/* Full version - used in the research environment */</script>
-<script src="https://nbed64.oss-cn-hongkong.aliyuncs.com/nbed64.es5.min.js">/* Compressed version - used in production environment */</script>
-```
-
-+ *Although the above embedding methods are very convenient, But it is also easy to pollute ` window`，So，It is recommended that you use the following ES6 standard embedding mode...*
-
-### As an ES6 Module，Browser || Nodejs || APICloud || Uin-App ( Very popular in China )
-
-Local... You need to download and decompress nbed64.zip on GitHub or official website, then...
-
-```javascript
-	import * as nbed64 from 'Nbed64 .es6.min';
-```
-
-+ *or*
-
-```javascript
-	import {
-		nbed64StringEncryptEx,
-		nbed64StringDecryptEx,
-		nbed64BinaryEncryptEx,
-		nbed64BinaryDecryptEx,
-		nbed64StringEncrypt,
-		nbed64StringDecrypt,
-		nbed64BinaryEncrypt,
-		nbed64BinaryDecrypt,
-		nbed64StringEncode,
-		nbed64StringDecode,
-		nbed64BinaryEncode,
-		nbed64BinaryDecode
-	} from 'nbed64.es6.min';
-```
-
-
-
-… or Directly from CDN.In this way, you do not have to download and install.
-
-
-```javascript
-	import * as nbed64 from 'https://nbed64.oss-cn-hongkong.aliyuncs.com/nbed64.es6.min';
-```
-
-+ *or*
-
-```javascript
-	import {
-		nbed64StringEncryptEx,
-		nbed64StringDecryptEx,
-		nbed64BinaryEncryptEx,
-		nbed64BinaryDecryptEx,
-		nbed64StringEncrypt,
-		nbed64StringDecrypt,
-		nbed64BinaryEncrypt,
-		nbed64BinaryDecrypt,
-		nbed64StringEncode,
-		nbed64StringDecode,
-		nbed64BinaryEncode,
-		nbed64BinaryDecode
-	} from 'https://nbed64.oss-cn-hongkong.aliyuncs.com/nbed64.es6.min';
+``` bash
+$ composer require crazybooot/base64-validation
 ```
 
 
@@ -196,35 +122,35 @@ Local... You need to download and decompress nbed64.zip on GitHub or official we
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Nbed64 An upgraded version of string encryption, Short name: string dynamic encryption （ This function And nbed64StringDecryptEx() It's a pair )
  * @param str {string} Source data.
  * @param key {string} Theoretically, the length of the key is proportional to the difficulty of the reverse.
- * @param isUtf8 {boolean} Whether to use UTF-8 encoding format. The default value is true. If set to false, UTF-16 encoding is used.
+ * @param $isUtf8 {boolean} Whether to use UTF-8 encoding format. The default value is true. If set to false, UTF-16 encoding is used.
  * be careful:  This refers to the encoding before encryption, not the base64 encoding after encryption. Base64 does not need to be encoded. In other words, this parameter refers to the decrypted string encoding.
  * The default encoding of JS is UTF-16, but UTF-16 is not friendly. Many programming languages and server environments do not support UTF-16.
- * @param maskNumber {number} The number of masks. The default value is 32, Range: 32 - 65535. The lower limit is 32 and the upper limit is 65535.
+ * @param $maskNumber {number} The number of masks. The default value is 32, Range: 32 - 65535. The lower limit is 32 and the upper limit is 65535.
  * @return {string} Encryption results in Base64 format
  */
-const nbed64StringEncryptEx = (str, key, isUtf8 = true, maskNumber = 32) => { ... }
+function nbed64StringEncryptEx($str, $key, $isUtf8 = true, $maskNumber = 32) { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: The result of dynamic encryption will be different every time
-	let isUtf8 = true;
-	let key = 'Key1234567890++';
-	let text = 'This is the string content that needs to be encrypted ...';
-	let base64 = nbed64StringEncryptEx(text, key, isUtf8);
-	console.log('Results of dynamic encryption : ' + base64);
-	// console.log -> Results of dynamic encryption : a0uJd6EATJExVa2ewU366YsGEUEFIIw9_O8lXfA0ty5FGTm6emBFcejt2Jn5LXBAMFkpWcXB8Tk4mYkIrei5eej9uVmpqbi9iMkN-dntuekZyNlp-bmpvfXV1d
-	console.log('Retry Comparison -------------: ' + nbed64StringEncryptEx(text, key, isUtf8));
-	// console.log -> Retry Comparison -------------: a0vhNploZYEChcZ1JCQV7xyAJlDezRAt8ys_P2_BKSxRMjq5eWjN-Wjt2JV1ofDQoMkpWc35yQk4mYkYvfCxceCl4QGhobBFcDkN-dGl8akZyNDgcDmJnd1dXV
-	let TextDec = nbed64StringDecryptEx(base64, key, isUtf8);
-	console.log('Results of dynamic decryption :' + TextDec);
-	// console.log -> Results of dynamic decryption :This is the string content that needs to be encrypted ...
+	$isUtf8 = true;
+	$key = 'Key1234567890++';
+	$text = 'This is the string content that needs to be encrypted ...';
+	$base64 = nbed64StringEncryptEx($text, $key, $isUtf8);
+	echo ('Results of dynamic encryption : ' + $base64);
+	// echo  -> Results of dynamic encryption : a0uJd6EATJExVa2ewU366YsGEUEFIIw9_O8lXfA0ty5FGTm6emBFcejt2Jn5LXBAMFkpWcXB8Tk4mYkIrei5eej9uVmpqbi9iMkN-dntuekZyNlp-bmpvfXV1d
+	echo ('Retry Comparison -------------: ' + nbed64StringEncryptEx($text, $key, $isUtf8));
+	// echo  -> Retry Comparison -------------: a0vhNploZYEChcZ1JCQV7xyAJlDezRAt8ys_P2_BKSxRMjq5eWjN-Wjt2JV1ofDQoMkpWc35yQk4mYkYvfCxceCl4QGhobBFcDkN-dGl8akZyNDgcDmJnd1dXV
+	$textDec = nbed64StringDecryptEx($base64, $key, $isUtf8);
+	echo ('Results of dynamic decryption :' + $textDec);
+	// echo  -> Results of dynamic decryption :This is the string content that needs to be encrypted ...
 ```
 
 
@@ -235,32 +161,32 @@ const nbed64StringEncryptEx = (str, key, isUtf8 = true, maskNumber = 32) => { ..
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Base64 An upgraded version of string decrypted, Short name: Dynamic decryption strings（ This function And nbed64StringEncryptEx() It's a pair )
- * @param base64str {string} Encrypted string in base64 format
+ * @param $base64str {string} Encrypted string in base64 format
  * @param key {string} Please keep the settings exactly the same as the encryption settings.
- * @param isUtf8 {boolean} Whether to use UTF-8 encoding format. Please keep the settings exactly the same as the encryption settings.
+ * @param $isUtf8 {boolean} Whether to use UTF-8 encoding format. Please keep the settings exactly the same as the encryption settings.
  * @return {string} Decrypt result( UTF-16 encoding format ).be careful:  For ease of use, The decryption result will be automatically converted to the default encoding of the current program language, It is easy to use it out of the box, and the secondary coding is omitted. JS default encoding: UTF-16
  */
-const nbed64StringDecryptEx = (base64str, key, isUtf8 = true) => { ... }
+function nbed64StringDecryptEx($base64str, $key, $isUtf8 = true) { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: The result of dynamic encryption will be different every time
-	let isUtf8 = true;
-	let key = 'Key1234567890++';
-	let text = 'This is the string content that needs to be encrypted ...';
-	let base64 = nbed64StringEncryptEx(text, key, isUtf8);
-	console.log('Results of dynamic encryption : ' + base64);
-	// console.log -> Results of dynamic encryption : a0uJd6EATJExVa2ewU366YsGEUEFIIw9_O8lXfA0ty5FGTm6emBFcejt2Jn5LXBAMFkpWcXB8Tk4mYkIrei5eej9uVmpqbi9iMkN-dntuekZyNlp-bmpvfXV1d
-	console.log('Retry Comparison -------------: ' + nbed64StringEncryptEx(text, key, isUtf8));
-	// console.log -> Retry Comparison -------------: a0vhNploZYEChcZ1JCQV7xyAJlDezRAt8ys_P2_BKSxRMjq5eWjN-Wjt2JV1ofDQoMkpWc35yQk4mYkYvfCxceCl4QGhobBFcDkN-dGl8akZyNDgcDmJnd1dXV
-	let TextDec = nbed64StringDecryptEx(base64, key, isUtf8);
-	console.log('Results of dynamic decryption :' + TextDec);
-	// console.log -> Results of dynamic decryption :This is the string content that needs to be encrypted ...
+	$isUtf8 = true;
+	$key = 'Key1234567890++';
+	$text = 'This is the string content that needs to be encrypted ...';
+	$base64 = nbed64StringEncryptEx($text, $key, $isUtf8);
+	echo ('Results of dynamic encryption : ' + $base64);
+	// echo  -> Results of dynamic encryption : a0uJd6EATJExVa2ewU366YsGEUEFIIw9_O8lXfA0ty5FGTm6emBFcejt2Jn5LXBAMFkpWcXB8Tk4mYkIrei5eej9uVmpqbi9iMkN-dntuekZyNlp-bmpvfXV1d
+	echo ('Retry Comparison -------------: ' + nbed64StringEncryptEx($text, $key, $isUtf8));
+	// echo  -> Retry Comparison -------------: a0vhNploZYEChcZ1JCQV7xyAJlDezRAt8ys_P2_BKSxRMjq5eWjN-Wjt2JV1ofDQoMkpWc35yQk4mYkYvfCxceCl4QGhobBFcDkN-dGl8akZyNDgcDmJnd1dXV
+	$textDec = nbed64StringDecryptEx(base64, $key, $isUtf8);
+	echo ('Results of dynamic decryption :' + $textDec);
+	// echo  -> Results of dynamic decryption :This is the string content that needs to be encrypted ...
 ```
 
 
@@ -271,31 +197,31 @@ const nbed64StringDecryptEx = (base64str, key, isUtf8 = true) => { ... }
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Base64 An upgraded version of Binary decrypted,  Short name: Binary dynamic encryption（ This function And nbed64BinaryDecryptEx() It's a pair )
  * @param byteArr {ByteArray} Source data. Binary byte array, such as video, audio, pictures, files, etc.
  * @param key {string} Theoretically, the length of the key is proportional to the difficulty of the reverse.
- * @param maskNumber {number} The number of masks. The default value is 32, Range: 32 - 65535. The lower limit is 32 and the upper limit is 65535.
+ * @param $maskNumber {number} The number of masks. The default value is 32, Range: 32 - 65535. The lower limit is 32 and the upper limit is 65535.
  * @return {string} Encryption results in Base64 format
  */
-const nbed64BinaryEncryptEx = (byteArr, key, maskNumber = 32) => { ... }
+function nbed64BinaryEncryptEx(byteArr, $key, $maskNumber = 32) { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: The result of dynamic encryption will be different every time
-	let key = 'Key1234567890++';
-	let mp4 = new Uint8Array([255, 254, 253, 252, 251, 250, 249, 248, 247, 246]);;
-	let base64 = nbed64BinaryEncryptEx(mp4, key);
-	console.log('Results of dynamic encryption : ' + base64);
-	// console.log -> Results of dynamic encryption : a0svUqijsI2imowGM0cawSzgBL3EKb715b0LfA7sn76QlDEBESAwQFBgcIAf
-	console.log('Retry Comparison ------------ : ' + nbed64BinaryEncryptEx(mp4, key));
-	// console.log -> Retry Comparison ------------ : a0u9gfcjNO5e5y1_ym6PnddhSdyhL8j75Ndsev0I9ZVCUDAAECERYXAgMMgX
-	let TextDec = nbed64BinaryDecryptEx(base64, key);
-	console.log('Results of dynamic decryption :' + TextDec);
-	// console.log -> Results of dynamic decryption :255,254,253,252,251,250,249,248,247,246
+	$key = 'Key1234567890++';
+	$mp4 = array(255, 254, 253, 252, 251, 250, 249, 248, 247, 246);
+	$base64 = nbed64BinaryEncryptEx($mp4, $key);
+	echo ('Results of dynamic encryption : ' + $base64);
+	// echo  -> Results of dynamic encryption : a0svUqijsI2imowGM0cawSzgBL3EKb715b0LfA7sn76QlDEBESAwQFBgcIAf
+	echo ('Retry Comparison ------------ : ' + nbed64BinaryEncryptEx($mp4, $key));
+	// echo  -> Retry Comparison ------------ : a0u9gfcjNO5e5y1_ym6PnddhSdyhL8j75Ndsev0I9ZVCUDAAECERYXAgMMgX
+	$textDec = nbed64BinaryDecryptEx($base64, $key);
+	echo ('Results of dynamic decryption :' + $textDec);
+	// echo  -> Results of dynamic decryption :255,254,253,252,251,250,249,248,247,246
 ```
 
 
@@ -306,30 +232,30 @@ const nbed64BinaryEncryptEx = (byteArr, key, maskNumber = 32) => { ... }
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Base64 An upgraded version of Binary decrypted,  Short name: Binary dynamic decryption（ This function And nbed64BinaryEncryptEx() It's a pair )
- * @param base64str {string} Encrypted string in base64 format
+ * @param $base64str {string} Encrypted string in base64 format
  * @param key {string} Please keep the settings exactly the same as the encryption settings.
  * @return {ByteArray} Decrypt result
  */
-const nbed64BinaryDecryptEx = (base64str, key) =>  { ... }
+function nbed64BinaryDecryptEx($base64str, $key) =>  { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: The result of dynamic encryption will be different every time
-	let key = 'Key1234567890++';
-	let mp4 = new Uint8Array([255, 254, 253, 252, 251, 250, 249, 248, 247, 246]);;
-	let base64 = nbed64BinaryEncryptEx(mp4, key);
-	console.log('Results of dynamic encryption : ' + base64);
-	// console.log -> Results of dynamic encryption : a0svUqijsI2imowGM0cawSzgBL3EKb715b0LfA7sn76QlDEBESAwQFBgcIAf
-	console.log('Retry Comparison ------------ : ' + nbed64BinaryEncryptEx(mp4, key));
-	// console.log -> Retry Comparison ------------ : a0u9gfcjNO5e5y1_ym6PnddhSdyhL8j75Ndsev0I9ZVCUDAAECERYXAgMMgX
-	let TextDec = nbed64BinaryDecryptEx(base64, key);
-	console.log('Results of dynamic decryption :' + TextDec);
-	// console.log -> Results of dynamic decryption :255,254,253,252,251,250,249,248,247,246
+	$key = 'Key1234567890++';
+	$mp4 = array(255, 254, 253, 252, 251, 250, 249, 248, 247, 246);;
+	$base64 = nbed64BinaryEncryptEx($mp4, $key);
+	echo ('Results of dynamic encryption : ' + $base64);
+	// echo  -> Results of dynamic encryption : a0svUqijsI2imowGM0cawSzgBL3EKb715b0LfA7sn76QlDEBESAwQFBgcIAf
+	echo ('Retry Comparison ------------ : ' + nbed64BinaryEncryptEx($mp4, $key));
+	// echo  -> Retry Comparison ------------ : a0u9gfcjNO5e5y1_ym6PnddhSdyhL8j75Ndsev0I9ZVCUDAAECERYXAgMMgX
+	$textDec = nbed64BinaryDecryptEx($base64, $key);
+	echo ('Results of dynamic decryption :' + $textDec);
+	// echo  -> Results of dynamic decryption :255,254,253,252,251,250,249,248,247,246
 ```
 
 
@@ -340,37 +266,37 @@ const nbed64BinaryDecryptEx = (base64str, key) =>  { ... }
 
 + Function Prototype:
 
-```javascript
+```php
 /**
 /**
  * Base64 Encrypt string（ This function And nbed64StringDecrypt() It's a pair )
  * @param str {string} Source data.
  * @param key {string} Theoretically, the length of the key is proportional to the difficulty of the reverse.
- * @param isUtf8 {boolean} Whether to use UTF-8 encoding format. The default value is true. If set to false, UTF-16 encoding is used.
+ * @param $isUtf8 {boolean} Whether to use UTF-8 encoding format. The default value is true. If set to false, UTF-16 encoding is used.
  * be careful: This refers to the encoding before encryption, not the base64 encoding after encryption. Base64 does not need to be encoded.In other words, this parameter refers to the decrypted string encoding.
  * The default encoding of JS is UTF-16, but UTF-16 is not friendly. Many programming languages and server environments do not support UTF-16.
- * @param isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
+ * @param $isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
  * @return {string} Encryption results in Base64 format
  */
-const nbed64StringEncrypt = (str, key, isUtf8 = true, isRFC4648 = true) =>  { ... }
+function nbed64StringEncrypt($str, $key, $isUtf8 = true, $isRFC4648 = true) =>  { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: The result of symmetric encryption is the same every time and is fixed
-	let isUtf8 = true;
-	let isRFC4648 = true;
-	let key = 'Key1234567890++';
-	let text = 'This is the string content that needs to be encrypted ...';
-	let base64 = nbed64StringEncrypt(text, key, isUtf8, isRFC4648);
-	console.log('Results of symmetric encryption : ' + base64);
-	// console.log -> Results of symmetric encryption : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
-	console.log('Retry Comparison -------------- : ' + nbed64StringEncrypt(text, key, isUtf8, isRFC4648));
-	// console.log -> Retry Comparison -------------- : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
-	let TextDec = nbed64StringDecrypt(base64, key, isUtf8);
-	console.log('Results of symmetric decryption : ' + TextDec);
-	// console.log -> Results of symmetric decryption : This is the string content that needs to be encrypted ...
+	$isUtf8 = true;
+	$isRFC4648 = true;
+	$key = 'Key1234567890++';
+	$text = 'This is the string content that needs to be encrypted ...';
+	$base64 = nbed64StringEncrypt($text, $key, $isUtf8, $isRFC4648);
+	echo ('Results of symmetric encryption : ' + $base64);
+	// echo  -> Results of symmetric encryption : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
+	echo ('Retry Comparison -------------- : ' + nbed64StringEncrypt($text, $key, $isUtf8, $isRFC4648));
+	// echo  -> Retry Comparison -------------- : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
+	$textDec = nbed64StringDecrypt($base64, $key, $isUtf8);
+	echo ('Results of symmetric decryption : ' + $textDec);
+	// echo  -> Results of symmetric decryption : This is the string content that needs to be encrypted ...
 ```
 
 
@@ -381,33 +307,33 @@ const nbed64StringEncrypt = (str, key, isUtf8 = true, isRFC4648 = true) =>  { ..
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Base64 Decrypt to string（ This function And nbed64StringEncrypt() It's a pair )
- * @param base64str {string} Encrypted string in base64 format
+ * @param $base64str {string} Encrypted string in base64 format
  * @param key {string} Please keep the settings exactly the same as the encryption settings.
- * @param isUtf8 {boolean} Whether to use UTF-8 encoding format. Please keep the settings exactly the same as the encryption settings.
+ * @param $isUtf8 {boolean} Whether to use UTF-8 encoding format. Please keep the settings exactly the same as the encryption settings.
  * @return {string} Decrypt result( UTF-16 encoding format ).be careful:  For ease of use, The decryption result will be automatically converted to the default encoding of the current program language, It is easy to use it out of the box, and the secondary coding is omitted. JS default encoding: UTF-16
  */
-const nbed64StringDecrypt = (base64str, key, isUtf8 = true) =>  { ... }
+function nbed64StringDecrypt($base64str, $key, $isUtf8 = true) =>  { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: The result of symmetric encryption is the same every time and is fixed
-	let isUtf8 = true;
-	let isRFC4648 = true;
-	let key = 'Key1234567890++';
-	let text = 'This is the string content that needs to be encrypted ...';
-	let base64 = nbed64StringEncrypt(text, key, isUtf8, isRFC4648);
-	console.log('Results of symmetric encryption : ' + base64);
-	// console.log -> Results of symmetric encryption : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
-	console.log('Retry Comparison -------------- : ' + nbed64StringEncrypt(text, key, isUtf8, isRFC4648));
-	// console.log -> Retry Comparison -------------- : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
-	let TextDec = nbed64StringDecrypt(base64, key, isUtf8);
-	console.log('Results of symmetric decryption : ' + TextDec);
-	// console.log -> Results of symmetric decryption : This is the string content that needs to be encrypted ...
+	$isUtf8 = true;
+	$isRFC4648 = true;
+	$key = 'Key1234567890++';
+	$text = 'This is the string content that needs to be encrypted ...';
+	$base64 = nbed64StringEncrypt($text, $key, $isUtf8, $isRFC4648);
+	echo ('Results of symmetric encryption : ' + $base64);
+	// echo  -> Results of symmetric encryption : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
+	echo ('Retry Comparison -------------- : ' + nbed64StringEncrypt($text, $key, $isUtf8, $isRFC4648));
+	// echo  -> Retry Comparison -------------- : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
+	$textDec = nbed64StringDecrypt($base64, $key, $isUtf8);
+	echo ('Results of symmetric decryption : ' + $textDec);
+	// echo  -> Results of symmetric decryption : This is the string content that needs to be encrypted ...
 ```
 
 
@@ -418,32 +344,32 @@ const nbed64StringDecrypt = (base64str, key, isUtf8 = true) =>  { ... }
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Base64 Encrypt binary data（ This function And nbed64BinaryDecrypt() It's a pair )
  * @param byteArr {ByteArray} Source data. Binary byte array, such as video, audio, pictures, files, etc.
  * @param key {string} Theoretically, the length of the key is proportional to the difficulty of the reverse.
- * @param isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
+ * @param $isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
  * @return {string} Encryption results in Base64 format
  */
-const nbed64BinaryDecrypt = (base64str, key) =>  { ... }
+function nbed64BinaryDecrypt($base64str, $key) =>  { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: The result of symmetric encryption is the same every time and is fixed
-	let isRFC4648 = true;
-	let key = 'Key1234567890++';
-	let mp3 = new Uint8Array([155, 154, 153, 152, 151, 150, 149, 148, 147, 146]);;
-	let base64 = nbed64BinaryEncrypt(mp3, key, isRFC4648);
-	console.log('Results of symmetric encryption : ' + base64);
-	// console.log -> Results of symmetric encryption : 0NHS_fLz7O3qoz
-	console.log('Retry Comparison -------------- : ' + nbed64BinaryEncrypt(mp3, key, isRFC4648));
-	// console.log -> Retry Comparison -------------- : 0NHS_fLz7O3qoz
-	let TextDec = nbed64BinaryDecrypt(base64, key);
-	console.log('Results of symmetric decryption : ' + TextDec);
-	// console.log -> Results of symmetric decryption : 155,154,153,152,151,150,149,148,147,146
+	$isRFC4648 = true;
+	$key = 'Key1234567890++';
+	$mp3 = array([155, 154, 153, 152, 151, 150, 149, 148, 147, 146]);;
+	$base64 = nbed64BinaryEncrypt(mp3, $key, $isRFC4648);
+	echo ('Results of symmetric encryption : ' + $base64);
+	// echo  -> Results of symmetric encryption : 0NHS_fLz7O3qoz
+	echo ('Retry Comparison -------------- : ' + nbed64BinaryEncrypt(mp3, $key, $isRFC4648));
+	// echo  -> Retry Comparison -------------- : 0NHS_fLz7O3qoz
+	$textDec = nbed64BinaryDecrypt($base64, $key);
+	echo ('Results of symmetric decryption : ' + $textDec);
+	// echo  -> Results of symmetric decryption : 155,154,153,152,151,150,149,148,147,146
 ```
 
 
@@ -454,31 +380,31 @@ const nbed64BinaryDecrypt = (base64str, key) =>  { ... }
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Base64 Decrypt to binary data（ This function And nbed64BinaryEncrypt() It's a pair )
- * @param base64str {string} Encrypted string in base64 format
+ * @param $base64str {string} Encrypted string in base64 format
  * @param key {string} Please keep the settings exactly the same as the encryption settings.
  * @return {ByteArray} Decrypt result
  */
-const nbed64BinaryDecrypt = (base64str, key) =>  { ... }
+function nbed64BinaryDecrypt($base64str, $key) =>  { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: The result of symmetric encryption is the same every time and is fixed
-	let isRFC4648 = true;
-	let key = 'Key1234567890++';
-	let mp3 = new Uint8Array([155, 154, 153, 152, 151, 150, 149, 148, 147, 146]);;
-	let base64 = nbed64BinaryEncrypt(mp3, key, isRFC4648);
-	console.log('Results of symmetric encryption : ' + base64);
-	// console.log -> Results of symmetric encryption : 0NHS_fLz7O3qoz
-	console.log('Retry Comparison -------------- : ' + nbed64BinaryEncrypt(mp3, key, isRFC4648));
-	// console.log -> Retry Comparison -------------- : 0NHS_fLz7O3qoz
-	let TextDec = nbed64BinaryDecrypt(base64, key);
-	console.log('Results of symmetric decryption : ' + TextDec);
-	// console.log -> Results of symmetric decryption : 155,154,153,152,151,150,149,148,147,146
+	$isRFC4648 = true;
+	$key = 'Key1234567890++';
+	$mp3 = array([155, 154, 153, 152, 151, 150, 149, 148, 147, 146]);;
+	$base64 = nbed64BinaryEncrypt(mp3, $key, $isRFC4648);
+	echo ('Results of symmetric encryption : ' + $base64);
+	// echo  -> Results of symmetric encryption : 0NHS_fLz7O3qoz
+	echo ('Retry Comparison -------------- : ' + nbed64BinaryEncrypt(mp3, $key, $isRFC4648));
+	// echo  -> Retry Comparison -------------- : 0NHS_fLz7O3qoz
+	$textDec = nbed64BinaryDecrypt($base64, $key);
+	echo ('Results of symmetric decryption : ' + $textDec);
+	// echo  -> Results of symmetric decryption : 155,154,153,152,151,150,149,148,147,146
 ```
 
 
@@ -489,32 +415,32 @@ const nbed64BinaryDecrypt = (base64str, key) =>  { ... }
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Nbed64  Encode string （ be careful: This is encoding, not encryption ， （ This function And nbed64StringDecode() It's a pair )
  * @param str {string} Source data.
- * @param isUtf8 {boolean} Whether to use UTF-8 encoding format. The default value is true. If set to false, UTF-16 encoding is used.
+ * @param $isUtf8 {boolean} Whether to use UTF-8 encoding format. The default value is true. If set to false, UTF-16 encoding is used.
  * be careful: This refers to the encoding before encryption, not the base64 encoding after encryption. Base64 does not need to be encoded.In other words, this parameter refers to the decrypted string encoding.
  * The default encoding of JS is UTF-16, but UTF-16 is not friendly. Many programming languages and server environments do not support UTF-16.
- * @param isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
+ * @param $isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
  * @return {string} } Encoding results in Base64 format. Statement: This is not encryption
  */
-const nbed64StringEncode = (str, isUtf8 = true, isRFC4648 = true) =>  { ... }
+function nbed64StringEncode($str, $isUtf8 = true, $isRFC4648 = true) =>  { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: Standard Base64 encoding, Support RFC4648 security specification
-	let isUtf8 = true;
-	let isRFC4648 = true;
-	let text = 'This is the string content to be encoded--Base64...';
-	let base64 = nbed64StringEncode(text, isUtf8, isRFC4648);
-	console.log('Base64 encoded results : ' + base64);
-	// console.log -> Base64 encoded results : VGhpcyBpcyB0aGUgc3RyaW5nIGNvbnRlbnQgdG8gYmUgZW5jb2RlZC0tQmFzZTY0Li4u
-	let TextDec = nbed64StringDecode(base64, isUtf8);
-	console.log('Base64 decoding result : ' + TextDec);
-	// console.log -> Base64 decoding result : This is the string content to be encoded--Base64...
+	$isUtf8 = true;
+	$isRFC4648 = true;
+	$text = 'This is the string content to be encoded--Base64...';
+	$base64 = nbed64StringEncode($text, $isUtf8, $isRFC4648);
+	echo ('Base64 encoded results : ' + $base64);
+	// echo  -> Base64 encoded results : VGhpcyBpcyB0aGUgc3RyaW5nIGNvbnRlbnQgdG8gYmUgZW5jb2RlZC0tQmFzZTY0Li4u
+	$textDec = nbed64StringDecode($base64, $isUtf8);
+	echo ('Base64 decoding result : ' + $textDec);
+	// echo  -> Base64 decoding result : This is the string content to be encoded--Base64...
 ```
 
 
@@ -525,29 +451,29 @@ const nbed64StringEncode = (str, isUtf8 = true, isRFC4648 = true) =>  { ... }
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Nbed64 Decode to string（ be careful: This is decoding, not decryption， （ This function And nbed64StringEncode() It's a pair )
- * @param base64str {string} Encrypted string in base64 format
- * @param isUtf8 {boolean} Whether to use UTF-8 encoding format. The default value is true. If set to false, UTF-16 encoding is used.
+ * @param $base64str {string} Encrypted string in base64 format
+ * @param $isUtf8 {boolean} Whether to use UTF-8 encoding format. The default value is true. If set to false, UTF-16 encoding is used.
  * @return {string} Decrypt result( UTF-16 encoding format ).be careful:  For ease of use, The decryption result will be automatically converted to the default encoding of the current program language, It is easy to use it out of the box, and the secondary coding is omitted. JS default encoding: UTF-16
  */
-const nbed64StringDecode = (base64str, isUtf8 = true) =>  { ... }
+function nbed64StringDecode($base64str, $isUtf8 = true) =>  { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: Standard Base64 decode, But the performance of this algorithm is very high
-	let isUtf8 = true;
-	let isRFC4648 = true;
-	let text = 'This is the string content to be encoded--Base64...';
-	let base64 = nbed64StringEncode(text, isUtf8, isRFC4648);
-	console.log('Base64 encoded results : ' + base64);
-	// console.log -> Base64 encoded results : VGhpcyBpcyB0aGUgc3RyaW5nIGNvbnRlbnQgdG8gYmUgZW5jb2RlZC0tQmFzZTY0Li4u
-	let TextDec = nbed64StringDecode(base64, isUtf8);
-	console.log('Base64 decoding result : ' + TextDec);
-	// console.log -> Base64 decoding result : This is the string content to be encoded--Base64...
+	$isUtf8 = true;
+	$isRFC4648 = true;
+	$text = 'This is the string content to be encoded--Base64...';
+	$base64 = nbed64StringEncode($text, $isUtf8, $isRFC4648);
+	echo ('Base64 encoded results : ' + $base64);
+	// echo  -> Base64 encoded results : VGhpcyBpcyB0aGUgc3RyaW5nIGNvbnRlbnQgdG8gYmUgZW5jb2RlZC0tQmFzZTY0Li4u
+	$textDec = nbed64StringDecode($base64, $isUtf8);
+	echo ('Base64 decoding result : ' + $textDec);
+	// echo  -> Base64 decoding result : This is the string content to be encoded--Base64...
 ```
 
 
@@ -558,28 +484,28 @@ const nbed64StringDecode = (base64str, isUtf8 = true) =>  { ... }
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Nbed64 Encode binary data（ be careful: This is encoding, not encryption ， （ This function And nbed64BinaryDecode() It's a pair )
  * @param byteArr {ByteArray} Source data. Binary byte array, such as video, audio, pictures, files, etc.
- * @param isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
+ * @param $isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
  * @return {string} Encoding results in Base64 format. Statement: This is not encryption
  */
-const nbed64BinaryEncode = (byteArr, isRFC4648 = true) =>  { ... }
+function nbed64BinaryEncode(byteArr, $isRFC4648 = true) =>  { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: Standard Base64 encoding, Support RFC4648 security specification
-	let isRFC4648 = true;
-	let image = new Uint8Array([55, 54, 53, 52, 51, 50, 49, 48, 47, 46]);;
-	let base64 = nbed64BinaryEncode(image, isRFC4648);
-	console.log('Base64 encoded results : ' + base64);
-	// console.log -> Base64 encoded results : NzY1NDMyMTAvLg
-	let TextDec = nbed64BinaryDecode(base64);
-	console.log('Base64 decoding result : ' + TextDec);
-	// console.log -> Base64 decoding result : 55,54,53,52,51,50,49,48,47,46
+	$isRFC4648 = true;
+	$image = array(55, 54, 53, 52, 51, 50, 49, 48, 47, 46);;
+	$base64 = nbed64BinaryEncode($image, $isRFC4648);
+	echo ('Base64 encoded results : ' + $base64);
+	// echo  -> Base64 encoded results : NzY1NDMyMTAvLg
+	$textDec = nbed64BinaryDecode($base64);
+	echo ('Base64 decoding result : ' + $textDec);
+	// echo  -> Base64 decoding result : 55,54,53,52,51,50,49,48,47,46
 
 ```
 
@@ -591,28 +517,29 @@ const nbed64BinaryEncode = (byteArr, isRFC4648 = true) =>  { ... }
 
 + Function Prototype:
 
-```javascript
+```php
 /**
  * Nbed64 Decode to binary data（ be careful: This is decoding, not decryption， （ This function And nbed64BinaryEncode() It's a pair )
- * @param base64str {string} Encrypted string in base64 format
+ * @param $base64str {string} Encrypted string in base64 format
  * @return {ByteArray} Decoding result
  */
-const nbed64BinaryDecode = (base64str) => { ... }
+function nbed64BinaryDecode($base64str) { ... }
 ```
 
 + DEMO：
 
-```javascript
+```php
 	// Statement: Standard Base64 decode, But the performance of this algorithm is very high
-	let isRFC4648 = true;
-	let image = new Uint8Array([55, 54, 53, 52, 51, 50, 49, 48, 47, 46]);;
-	let base64 = nbed64BinaryEncode(image, isRFC4648);
-	console.log('Base64 encoded results : ' + base64);
-	// console.log -> Base64 encoded results : NzY1NDMyMTAvLg
-	let TextDec = nbed64BinaryDecode(base64);
-	console.log('Base64 decoding result : ' + TextDec);
-	// console.log -> Base64 decoding result : 55,54,53,52,51,50,49,48,47,46
+	$isRFC4648 = true;
+	$image = array(55, 54, 53, 52, 51, 50, 49, 48, 47, 46);;
+	$base64 = nbed64BinaryEncode($image, $isRFC4648);
+	echo ('Base64 encoded results : ' + $base64);
+	// echo  -> Base64 encoded results : NzY1NDMyMTAvLg
+	$textDec = nbed64BinaryDecode($base64);
+	echo ('Base64 decoding result : ' + $textDec);
+	// echo  -> Base64 decoding result : 55,54,53,52,51,50,49,48,47,46
 ```
+
 
 
 # Extended knowledge reading
