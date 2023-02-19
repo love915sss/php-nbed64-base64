@@ -44,19 +44,19 @@
 
 + *Statement: Dynamic encryption is an upgraded version of (traditional) symmetric encryption, But in essence, But in essence, it is still symmetric encryption, However, dynamic encryption is more secure and reliable than traditional symmetric encryption. If you are interested in this research* Goto  [Benefits and principles of dynamic encryption] Learn more. 
 
-[nbed64StringEncryptEx()]: https://github.com/love915sss/js-nbed64-base64/#01-nbed64stringencryptex
-[nbed64StringDecryptEx()]: https://github.com/love915sss/js-nbed64-base64/#02-nbed64StringDecryptEx
-[nbed64BinaryEncryptEx()]: https://github.com/love915sss/js-nbed64-base64/#03-nbed64BinaryEncryptEx
-[nbed64BinaryDecryptEx()]: https://github.com/love915sss/js-nbed64-base64/#04-nbed64BinaryDecryptEx
-[nbed64StringEncrypt()]: https://github.com/love915sss/js-nbed64-base64/#05-nbed64StringEncrypt
-[nbed64StringDecrypt()]: https://github.com/love915sss/js-nbed64-base64/#06-nbed64StringDecrypt
-[nbed64BinaryEncrypt()]: https://github.com/love915sss/js-nbed64-base64/#07-nbed64BinaryEncrypt
-[nbed64BinaryDecrypt()]: https://github.com/love915sss/js-nbed64-base64/#08-nbed64BinaryDecrypt
-[nbed64StringEncode()]: https://github.com/love915sss/js-nbed64-base64/#09-nbed64StringEncode
-[nbed64StringDecode()]: https://github.com/love915sss/js-nbed64-base64/#10-nbed64StringDecode
-[nbed64BinaryEncode()]: https://github.com/love915sss/js-nbed64-base64/#11-nbed64BinaryEncode
-[nbed64BinaryDecode()]: https://github.com/love915sss/js-nbed64-base64/#12-nbed64BinaryDecode
-[Benefits and principles of dynamic encryption]: https://github.com/love915sss/js-nbed64-base64/#benefits-and-principles-of-dynamic-encryption
+[nbed64StringEncryptEx()]: https://github.com/love915sss/php-nbed64-base64/#01-nbed64stringencryptex
+[nbed64StringDecryptEx()]: https://github.com/love915sss/php-nbed64-base64/#02-nbed64StringDecryptEx
+[nbed64BinaryEncryptEx()]: https://github.com/love915sss/php-nbed64-base64/#03-nbed64BinaryEncryptEx
+[nbed64BinaryDecryptEx()]: https://github.com/love915sss/php-nbed64-base64/#04-nbed64BinaryDecryptEx
+[nbed64StringEncrypt()]: https://github.com/love915sss/php-nbed64-base64/#05-nbed64StringEncrypt
+[nbed64StringDecrypt()]: https://github.com/love915sss/php-nbed64-base64/#06-nbed64StringDecrypt
+[nbed64BinaryEncrypt()]: https://github.com/love915sss/php-nbed64-base64/#07-nbed64BinaryEncrypt
+[nbed64BinaryDecrypt()]: https://github.com/love915sss/php-nbed64-base64/#08-nbed64BinaryDecrypt
+[nbed64StringEncode()]: https://github.com/love915sss/php-nbed64-base64/#09-nbed64StringEncode
+[nbed64StringDecode()]: https://github.com/love915sss/php-nbed64-base64/#10-nbed64StringDecode
+[nbed64BinaryEncode()]: https://github.com/love915sss/php-nbed64-base64/#11-nbed64BinaryEncode
+[nbed64BinaryDecode()]: https://github.com/love915sss/php-nbed64-base64/#12-nbed64BinaryDecode
+[Benefits and principles of dynamic encryption]: https://github.com/love915sss/php-nbed64-base64/#benefits-and-principles-of-dynamic-encryption
 
 
 
