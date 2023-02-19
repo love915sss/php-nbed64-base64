@@ -144,9 +144,9 @@ function nbed64StringEncryptEx($str, $key, $isUtf8 = true, $maskNumber = 32) { .
 	$key = 'Key1234567890++';
 	$text = 'This is the string content that needs to be encrypted ...';
 	$base64 = nbed64StringEncryptEx($text, $key, $isUtf8);
-	echo ('Results of dynamic encryption : ' + $base64);
+	echo ('Results of dynamic encryption : ' . $base64);
 	// echo  -> Results of dynamic encryption : a0uJd6EATJExVa2ewU366YsGEUEFIIw9_O8lXfA0ty5FGTm6emBFcejt2Jn5LXBAMFkpWcXB8Tk4mYkIrei5eej9uVmpqbi9iMkN-dntuekZyNlp-bmpvfXV1d
-	echo ('Retry Comparison -------------: ' + nbed64StringEncryptEx($text, $key, $isUtf8));
+	echo ('Retry Comparison -------------: ' . nbed64StringEncryptEx($text, $key, $isUtf8));
 	// echo  -> Retry Comparison -------------: a0vhNploZYEChcZ1JCQV7xyAJlDezRAt8ys_P2_BKSxRMjq5eWjN-Wjt2JV1ofDQoMkpWc35yQk4mYkYvfCxceCl4QGhobBFcDkN-dGl8akZyNDgcDmJnd1dXV
 	$textDec = nbed64StringDecryptEx($base64, $key, $isUtf8);
 	echo ('Results of dynamic decryption :' + $textDec);
@@ -180,9 +180,9 @@ function nbed64StringDecryptEx($base64str, $key, $isUtf8 = true) { ... }
 	$key = 'Key1234567890++';
 	$text = 'This is the string content that needs to be encrypted ...';
 	$base64 = nbed64StringEncryptEx($text, $key, $isUtf8);
-	echo ('Results of dynamic encryption : ' + $base64);
+	echo ('Results of dynamic encryption : ' . $base64);
 	// echo  -> Results of dynamic encryption : a0uJd6EATJExVa2ewU366YsGEUEFIIw9_O8lXfA0ty5FGTm6emBFcejt2Jn5LXBAMFkpWcXB8Tk4mYkIrei5eej9uVmpqbi9iMkN-dntuekZyNlp-bmpvfXV1d
-	echo ('Retry Comparison -------------: ' + nbed64StringEncryptEx($text, $key, $isUtf8));
+	echo ('Retry Comparison -------------: ' . nbed64StringEncryptEx($text, $key, $isUtf8));
 	// echo  -> Retry Comparison -------------: a0vhNploZYEChcZ1JCQV7xyAJlDezRAt8ys_P2_BKSxRMjq5eWjN-Wjt2JV1ofDQoMkpWc35yQk4mYkYvfCxceCl4QGhobBFcDkN-dGl8akZyNDgcDmJnd1dXV
 	$textDec = nbed64StringDecryptEx(base64, $key, $isUtf8);
 	echo ('Results of dynamic decryption :' + $textDec);
@@ -215,9 +215,9 @@ function nbed64BinaryEncryptEx(byteArr, $key, $maskNumber = 32) { ... }
 	$key = 'Key1234567890++';
 	$mp4 = array(255, 254, 253, 252, 251, 250, 249, 248, 247, 246);
 	$base64 = nbed64BinaryEncryptEx($mp4, $key);
-	echo ('Results of dynamic encryption : ' + $base64);
+	echo ('Results of dynamic encryption : ' . $base64);
 	// echo  -> Results of dynamic encryption : a0svUqijsI2imowGM0cawSzgBL3EKb715b0LfA7sn76QlDEBESAwQFBgcIAf
-	echo ('Retry Comparison ------------ : ' + nbed64BinaryEncryptEx($mp4, $key));
+	echo ('Retry Comparison ------------ : ' . nbed64BinaryEncryptEx($mp4, $key));
 	// echo  -> Retry Comparison ------------ : a0u9gfcjNO5e5y1_ym6PnddhSdyhL8j75Ndsev0I9ZVCUDAAECERYXAgMMgX
 	$textDec = nbed64BinaryDecryptEx($base64, $key);
 	echo ('Results of dynamic decryption :' + $textDec);
@@ -239,7 +239,7 @@ function nbed64BinaryEncryptEx(byteArr, $key, $maskNumber = 32) { ... }
  * @param key {string} Please keep the settings exactly the same as the encryption settings.
  * @return {ByteArray} Decrypt result
  */
-function nbed64BinaryDecryptEx($base64str, $key) =>  { ... }
+function nbed64BinaryDecryptEx($base64str, $key){ ... }
 ```
 
 + DEMO：
@@ -249,9 +249,9 @@ function nbed64BinaryDecryptEx($base64str, $key) =>  { ... }
 	$key = 'Key1234567890++';
 	$mp4 = array(255, 254, 253, 252, 251, 250, 249, 248, 247, 246);;
 	$base64 = nbed64BinaryEncryptEx($mp4, $key);
-	echo ('Results of dynamic encryption : ' + $base64);
+	echo ('Results of dynamic encryption : ' . $base64);
 	// echo  -> Results of dynamic encryption : a0svUqijsI2imowGM0cawSzgBL3EKb715b0LfA7sn76QlDEBESAwQFBgcIAf
-	echo ('Retry Comparison ------------ : ' + nbed64BinaryEncryptEx($mp4, $key));
+	echo ('Retry Comparison ------------ : ' . nbed64BinaryEncryptEx($mp4, $key));
 	// echo  -> Retry Comparison ------------ : a0u9gfcjNO5e5y1_ym6PnddhSdyhL8j75Ndsev0I9ZVCUDAAECERYXAgMMgX
 	$textDec = nbed64BinaryDecryptEx($base64, $key);
 	echo ('Results of dynamic decryption :' + $textDec);
@@ -278,7 +278,7 @@ function nbed64BinaryDecryptEx($base64str, $key) =>  { ... }
  * @param $isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
  * @return {string} Encryption results in Base64 format
  */
-function nbed64StringEncrypt($str, $key, $isUtf8 = true, $isRFC4648 = true) =>  { ... }
+function nbed64StringEncrypt($str, $key, $isUtf8 = true, $isRFC4648 = true){ ... }
 ```
 
 + DEMO：
@@ -290,12 +290,12 @@ function nbed64StringEncrypt($str, $key, $isUtf8 = true, $isRFC4648 = true) =>  
 	$key = 'Key1234567890++';
 	$text = 'This is the string content that needs to be encrypted ...';
 	$base64 = nbed64StringEncrypt($text, $key, $isUtf8, $isRFC4648);
-	echo ('Results of symmetric encryption : ' + $base64);
+	echo ('Results of symmetric encryption : ' . $base64);
 	// echo  -> Results of symmetric encryption : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
-	echo ('Retry Comparison -------------- : ' + nbed64StringEncrypt($text, $key, $isUtf8, $isRFC4648));
+	echo ('Retry Comparison -------------- : ' . nbed64StringEncrypt($text, $key, $isUtf8, $isRFC4648));
 	// echo  -> Retry Comparison -------------- : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
 	$textDec = nbed64StringDecrypt($base64, $key, $isUtf8);
-	echo ('Results of symmetric decryption : ' + $textDec);
+	echo ('Results of symmetric decryption : ' . $textDec);
 	// echo  -> Results of symmetric decryption : This is the string content that needs to be encrypted ...
 ```
 
@@ -315,7 +315,7 @@ function nbed64StringEncrypt($str, $key, $isUtf8 = true, $isRFC4648 = true) =>  
  * @param $isUtf8 {boolean} Whether to use UTF-8 encoding format. Please keep the settings exactly the same as the encryption settings.
  * @return {string} Decrypt result( UTF-16 encoding format ).be careful:  For ease of use, The decryption result will be automatically converted to the default encoding of the current program language, It is easy to use it out of the box, and the secondary coding is omitted. JS default encoding: UTF-16
  */
-function nbed64StringDecrypt($base64str, $key, $isUtf8 = true) =>  { ... }
+function nbed64StringDecrypt($base64str, $key, $isUtf8 = true){ ... }
 ```
 
 + DEMO：
@@ -327,12 +327,12 @@ function nbed64StringDecrypt($base64str, $key, $isUtf8 = true) =>  { ... }
 	$key = 'Key1234567890++';
 	$text = 'This is the string content that needs to be encrypted ...';
 	$base64 = nbed64StringEncrypt($text, $key, $isUtf8, $isRFC4648);
-	echo ('Results of symmetric encryption : ' + $base64);
+	echo ('Results of symmetric encryption : ' . $base64);
 	// echo  -> Results of symmetric encryption : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
-	echo ('Retry Comparison -------------- : ' + nbed64StringEncrypt($text, $key, $isUtf8, $isRFC4648));
+	echo ('Retry Comparison -------------- : ' . nbed64StringEncrypt($text, $key, $isUtf8, $isRFC4648));
 	// echo  -> Retry Comparison -------------- : HyMiFkUMClkNWVQRQUZAWl1UFFdbW0FQWEIWQ19WTBhWXFxdQxBERAtJTgtOJSg5HBURHB1ZHx8f
 	$textDec = nbed64StringDecrypt($base64, $key, $isUtf8);
-	echo ('Results of symmetric decryption : ' + $textDec);
+	echo ('Results of symmetric decryption : ' . $textDec);
 	// echo  -> Results of symmetric decryption : This is the string content that needs to be encrypted ...
 ```
 
@@ -352,7 +352,7 @@ function nbed64StringDecrypt($base64str, $key, $isUtf8 = true) =>  { ... }
  * @param $isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
  * @return {string} Encryption results in Base64 format
  */
-function nbed64BinaryDecrypt($base64str, $key) =>  { ... }
+function nbed64BinaryEncrypt($byteArr, $key, $isRFC4648 = true){ ... }
 ```
 
 + DEMO：
@@ -363,12 +363,12 @@ function nbed64BinaryDecrypt($base64str, $key) =>  { ... }
 	$key = 'Key1234567890++';
 	$mp3 = array([155, 154, 153, 152, 151, 150, 149, 148, 147, 146]);;
 	$base64 = nbed64BinaryEncrypt(mp3, $key, $isRFC4648);
-	echo ('Results of symmetric encryption : ' + $base64);
+	echo ('Results of symmetric encryption : ' . $base64);
 	// echo  -> Results of symmetric encryption : 0NHS_fLz7O3qoz
-	echo ('Retry Comparison -------------- : ' + nbed64BinaryEncrypt(mp3, $key, $isRFC4648));
+	echo ('Retry Comparison -------------- : ' . nbed64BinaryEncrypt(mp3, $key, $isRFC4648));
 	// echo  -> Retry Comparison -------------- : 0NHS_fLz7O3qoz
 	$textDec = nbed64BinaryDecrypt($base64, $key);
-	echo ('Results of symmetric decryption : ' + $textDec);
+	echo ('Results of symmetric decryption : ' . $textDec);
 	// echo  -> Results of symmetric decryption : 155,154,153,152,151,150,149,148,147,146
 ```
 
@@ -387,7 +387,7 @@ function nbed64BinaryDecrypt($base64str, $key) =>  { ... }
  * @param key {string} Please keep the settings exactly the same as the encryption settings.
  * @return {ByteArray} Decrypt result
  */
-function nbed64BinaryDecrypt($base64str, $key) =>  { ... }
+function nbed64BinaryDecrypt($base64str, $key){ ... }
 ```
 
 + DEMO：
@@ -398,12 +398,12 @@ function nbed64BinaryDecrypt($base64str, $key) =>  { ... }
 	$key = 'Key1234567890++';
 	$mp3 = array([155, 154, 153, 152, 151, 150, 149, 148, 147, 146]);;
 	$base64 = nbed64BinaryEncrypt(mp3, $key, $isRFC4648);
-	echo ('Results of symmetric encryption : ' + $base64);
+	echo ('Results of symmetric encryption : ' . $base64);
 	// echo  -> Results of symmetric encryption : 0NHS_fLz7O3qoz
-	echo ('Retry Comparison -------------- : ' + nbed64BinaryEncrypt(mp3, $key, $isRFC4648));
+	echo ('Retry Comparison -------------- : ' . nbed64BinaryEncrypt(mp3, $key, $isRFC4648));
 	// echo  -> Retry Comparison -------------- : 0NHS_fLz7O3qoz
 	$textDec = nbed64BinaryDecrypt($base64, $key);
-	echo ('Results of symmetric decryption : ' + $textDec);
+	echo ('Results of symmetric decryption : ' . $textDec);
 	// echo  -> Results of symmetric decryption : 155,154,153,152,151,150,149,148,147,146
 ```
 
@@ -425,7 +425,7 @@ function nbed64BinaryDecrypt($base64str, $key) =>  { ... }
  * @param $isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
  * @return {string} } Encoding results in Base64 format. Statement: This is not encryption
  */
-function nbed64StringEncode($str, $isUtf8 = true, $isRFC4648 = true) =>  { ... }
+function nbed64StringEncode($str, $isUtf8 = true, $isRFC4648 = true){ ... }
 ```
 
 + DEMO：
@@ -436,10 +436,10 @@ function nbed64StringEncode($str, $isUtf8 = true, $isRFC4648 = true) =>  { ... }
 	$isRFC4648 = true;
 	$text = 'This is the string content to be encoded--Base64...';
 	$base64 = nbed64StringEncode($text, $isUtf8, $isRFC4648);
-	echo ('Base64 encoded results : ' + $base64);
+	echo ('Base64 encoded results : ' . $base64);
 	// echo  -> Base64 encoded results : VGhpcyBpcyB0aGUgc3RyaW5nIGNvbnRlbnQgdG8gYmUgZW5jb2RlZC0tQmFzZTY0Li4u
 	$textDec = nbed64StringDecode($base64, $isUtf8);
-	echo ('Base64 decoding result : ' + $textDec);
+	echo ('Base64 decoding result : ' . $textDec);
 	// echo  -> Base64 decoding result : This is the string content to be encoded--Base64...
 ```
 
@@ -458,7 +458,7 @@ function nbed64StringEncode($str, $isUtf8 = true, $isRFC4648 = true) =>  { ... }
  * @param $isUtf8 {boolean} Whether to use UTF-8 encoding format. The default value is true. If set to false, UTF-16 encoding is used.
  * @return {string} Decrypt result( UTF-16 encoding format ).be careful:  For ease of use, The decryption result will be automatically converted to the default encoding of the current program language, It is easy to use it out of the box, and the secondary coding is omitted. JS default encoding: UTF-16
  */
-function nbed64StringDecode($base64str, $isUtf8 = true) =>  { ... }
+function nbed64StringDecode($base64str, $isUtf8 = true){ ... }
 ```
 
 + DEMO：
@@ -469,10 +469,10 @@ function nbed64StringDecode($base64str, $isUtf8 = true) =>  { ... }
 	$isRFC4648 = true;
 	$text = 'This is the string content to be encoded--Base64...';
 	$base64 = nbed64StringEncode($text, $isUtf8, $isRFC4648);
-	echo ('Base64 encoded results : ' + $base64);
+	echo ('Base64 encoded results : ' . $base64);
 	// echo  -> Base64 encoded results : VGhpcyBpcyB0aGUgc3RyaW5nIGNvbnRlbnQgdG8gYmUgZW5jb2RlZC0tQmFzZTY0Li4u
 	$textDec = nbed64StringDecode($base64, $isUtf8);
-	echo ('Base64 decoding result : ' + $textDec);
+	echo ('Base64 decoding result : ' . $textDec);
 	// echo  -> Base64 decoding result : This is the string content to be encoded--Base64...
 ```
 
@@ -491,7 +491,7 @@ function nbed64StringDecode($base64str, $isUtf8 = true) =>  { ... }
  * @param $isRFC4648 {boolean} Whether to adopt RFC4648 coding mapping specification, The default value is true. Base64 encoded by RFC4648 conforms to URL security, It can be used for HTTP protocol and Ajax requests.
  * @return {string} Encoding results in Base64 format. Statement: This is not encryption
  */
-function nbed64BinaryEncode(byteArr, $isRFC4648 = true) =>  { ... }
+function nbed64BinaryEncode(byteArr, $isRFC4648 = true){ ... }
 ```
 
 + DEMO：
@@ -501,10 +501,10 @@ function nbed64BinaryEncode(byteArr, $isRFC4648 = true) =>  { ... }
 	$isRFC4648 = true;
 	$image = array(55, 54, 53, 52, 51, 50, 49, 48, 47, 46);;
 	$base64 = nbed64BinaryEncode($image, $isRFC4648);
-	echo ('Base64 encoded results : ' + $base64);
+	echo ('Base64 encoded results : ' . $base64);
 	// echo  -> Base64 encoded results : NzY1NDMyMTAvLg
 	$textDec = nbed64BinaryDecode($base64);
-	echo ('Base64 decoding result : ' + $textDec);
+	echo ('Base64 decoding result : ' . $textDec);
 	// echo  -> Base64 decoding result : 55,54,53,52,51,50,49,48,47,46
 
 ```
@@ -533,10 +533,10 @@ function nbed64BinaryDecode($base64str) { ... }
 	$isRFC4648 = true;
 	$image = array(55, 54, 53, 52, 51, 50, 49, 48, 47, 46);;
 	$base64 = nbed64BinaryEncode($image, $isRFC4648);
-	echo ('Base64 encoded results : ' + $base64);
+	echo ('Base64 encoded results : ' . $base64);
 	// echo  -> Base64 encoded results : NzY1NDMyMTAvLg
 	$textDec = nbed64BinaryDecode($base64);
-	echo ('Base64 decoding result : ' + $textDec);
+	echo ('Base64 decoding result : ' . $textDec);
 	// echo  -> Base64 decoding result : 55,54,53,52,51,50,49,48,47,46
 ```
 
