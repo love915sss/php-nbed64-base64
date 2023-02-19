@@ -113,7 +113,7 @@
 ## 安裝
 
 ``` bash
-$ composer require crazybooot/base64-validation
+$ composer require nbed64
 ```
 
 
