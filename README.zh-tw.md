@@ -105,16 +105,6 @@
 [Python-Nbed64]: https://github.com/love915sss/Python-Nbed64-base64/
 
 
-# 安裝與引入
-
-## 安裝
-
-```shell
-$ npm install --save js-nbed64
-```
-*如果您無法通過 npm 安裝，沒關系，以下任意一種方式效果都一樣...*
-
-
 
 ## 環境要求
 
