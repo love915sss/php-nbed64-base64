@@ -45,19 +45,19 @@
 
 *備註：動態加密是(傳統)對稱加密的升級版，但本質上，它還是對稱加密，但它比傳統的對稱加密更加安全可靠。如果您對此有研究興趣，請您移步 *[動態加密的作用和原理]*了解更多詳情。*
 
-[nbed64StringEncryptEx()]: https://github.com/love915sss/js-nbed64-base64/#01-nbed64stringencryptex
-[nbed64StringDecryptEx()]: https://github.com/love915sss/js-nbed64-base64/#02-nbed64StringDecryptEx
-[nbed64BinaryEncryptEx()]: https://github.com/love915sss/js-nbed64-base64/#03-nbed64BinaryEncryptEx
-[nbed64BinaryDecryptEx()]: https://github.com/love915sss/js-nbed64-base64/#04-nbed64BinaryDecryptEx
-[nbed64StringEncrypt()]: https://github.com/love915sss/js-nbed64-base64/#05-nbed64StringEncrypt
-[nbed64StringDecrypt()]: https://github.com/love915sss/js-nbed64-base64/#06-nbed64StringDecrypt
-[nbed64BinaryEncrypt()]: https://github.com/love915sss/js-nbed64-base64/#07-nbed64BinaryEncrypt
-[nbed64BinaryDecrypt()]: https://github.com/love915sss/js-nbed64-base64/#08-nbed64BinaryDecrypt
-[nbed64StringEncode()]: https://github.com/love915sss/js-nbed64-base64/#09-nbed64StringEncode
-[nbed64StringDecode()]: https://github.com/love915sss/js-nbed64-base64/#10-nbed64StringDecode
-[nbed64BinaryEncode()]: https://github.com/love915sss/js-nbed64-base64/#11-nbed64BinaryEncode
-[nbed64BinaryDecode()]: https://github.com/love915sss/js-nbed64-base64/#12-nbed64BinaryDecode
-[動態加密的作用和原理]: https://github.com/love915sss/js-nbed64-base64/#動態加密的作用和原理
+[nbed64StringEncryptEx()]: https://github.com/love915sss/php-nbed64-base64/#01-nbed64stringencryptex
+[nbed64StringDecryptEx()]: https://github.com/love915sss/php-nbed64-base64/#02-nbed64StringDecryptEx
+[nbed64BinaryEncryptEx()]: https://github.com/love915sss/php-nbed64-base64/#03-nbed64BinaryEncryptEx
+[nbed64BinaryDecryptEx()]: https://github.com/love915sss/php-nbed64-base64/#04-nbed64BinaryDecryptEx
+[nbed64StringEncrypt()]: https://github.com/love915sss/php-nbed64-base64/#05-nbed64StringEncrypt
+[nbed64StringDecrypt()]: https://github.com/love915sss/php-nbed64-base64/#06-nbed64StringDecrypt
+[nbed64BinaryEncrypt()]: https://github.com/love915sss/php-nbed64-base64/#07-nbed64BinaryEncrypt
+[nbed64BinaryDecrypt()]: https://github.com/love915sss/php-nbed64-base64/#08-nbed64BinaryDecrypt
+[nbed64StringEncode()]: https://github.com/love915sss/php-nbed64-base64/#09-nbed64StringEncode
+[nbed64StringDecode()]: https://github.com/love915sss/php-nbed64-base64/#10-nbed64StringDecode
+[nbed64BinaryEncode()]: https://github.com/love915sss/php-nbed64-base64/#11-nbed64BinaryEncode
+[nbed64BinaryDecode()]: https://github.com/love915sss/php-nbed64-base64/#12-nbed64BinaryDecode
+[動態加密的作用和原理]: https://github.com/love915sss/php-nbed64-base64/#動態加密的作用和原理
 
 
 
