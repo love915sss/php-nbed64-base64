@@ -8,15 +8,15 @@
 
 +  *The readme file supports the following languages, of which Chinese is the author's native language, so the expression differences are the least! If you have the ability to read Chinese, please try to read the Chinese version of README.md. thank you !!!* 
 
-[English]: https://github.com/love915sss/js-nbed64-base64/blob/master/README.md
-[简体中文]: https://github.com/love915sss/js-nbed64-base64/blob/master/README.zh-cn.md
-[繁體中文]: https://github.com/love915sss/js-nbed64-base64/blob/master/README.zh-tw.md
-[日本語]: https://github.com/love915sss/js-nbed64-base64/blob/master/README.ja.md
-[한국어]: https://github.com/love915sss/js-nbed64-base64/blob/master/README.kr.md
-[Polski]: https://github.com/love915sss/js-nbed64-base64/blob/master/README.pl.md
-[Français]: https://github.com/love915sss/js-nbed64-base64/blob/master/README.fr.md
-[Español]: https://github.com/love915sss/js-nbed64-base64/blob/master/README.es.md
-[Português]: https://github.com/love915sss/js-nbed64-base64/blob/master/README.pt.md
+[English]: https://github.com/love915sss/php-nbed64-base64/blob/master/README.md
+[简体中文]: https://github.com/love915sss/php-nbed64-base64/blob/master/README.zh-cn.md
+[繁體中文]: https://github.com/love915sss/php-nbed64-base64/blob/master/README.zh-tw.md
+[日本語]: https://github.com/love915sss/php-nbed64-base64/blob/master/README.ja.md
+[한국어]: https://github.com/love915sss/php-nbed64-base64/blob/master/README.kr.md
+[Polski]: https://github.com/love915sss/php-nbed64-base64/blob/master/README.pl.md
+[Français]: https://github.com/love915sss/php-nbed64-base64/blob/master/README.fr.md
+[Español]: https://github.com/love915sss/php-nbed64-base64/blob/master/README.es.md
+[Português]: https://github.com/love915sss/php-nbed64-base64/blob/master/README.pt.md
 
 
 
